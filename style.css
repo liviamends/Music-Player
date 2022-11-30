@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family:'Montserrat', sans-serif;
+    color:#FFFFFF;
+}
+
+*::before, *::after {
+    padding:0;
+    margin:0;
+}
+
+:root {
+    background: linear-gradient(178.98deg, #2B1145 0.87%, #0D0B0F 123.59%);
+}
+
+body {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    min-height:100vh ;
+}
+
+.wrapper{
+    position:relative;
+    width:410px;
+    overflow: hidden;
+    height: 559px;
+    padding:25px 30px;
+    background: linear-gradient(180deg, rgba(44, 27, 71, 0.11) 16.46%, rgba(44, 27, 71, 0.0891) 96.78%), #0E0E0E;
+    box-shadow: -11px 4px 11px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+
+}
+
+.wrapper i{
+    cursor:pointer;
+}
+
+.top-bar, .progress-area .timer ,.controls, .music-list .header, .music-list li{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.top-bar i{
+    font-size:30px;
+    color:#FFFFFF;
+}
+
+.top-bar span {
+    font-size:18px;
+}
+
+.img-area {
+    height:240px;
+    width:70%;
+    background: rgb(33,20,53);
+    border-radius: 180px;
+    overflow: hidden;
+    margin-top:25px;
+    margin-left:52px;
+}
+
+.img-area img{
+    height:100%;
+    width:100%;
+    object-fit:cover;
+}
+
+.song-details {
+    text-align: center;
+    margin:30px 0;
+}
+
+.song-details .artist{
+    font-size:17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.song-details .name {
+    font-size:20px;
+    font-weight:200;
+}
+
+.progress-area{
+    height:6px;
+    width:100%;
+    background: linear-gradient(89.78deg, #3C3C3C -14.82%, #261F2C 120.39%);
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.progress-area .progress-bar {
+    height:inherit;
+    width:0%;
+    position:relative;
+    border-radius:inherit;
+    background:linear-gradient(90deg, #5a1b9a 0.87%, #361358 123.59%);
+}
+
+.progress-bar::before {
+    content:"";
+    position:absolute;
+    height:12px;
+    width:12px;
+    background:#000;
+    border-radius:inherit;
+    top:50%;
+    right:-5px;
+    transform:translateY(-50%);
+    background:inherit;
+    /* opacity: 0;
+    transition:opacity 0.2s ease; */
+}
+
+.progress-area:hover .progress-bar::before {
+    opacity:1;
+}
+
+.progress-area .timer {
+    margin-top:3px;
+}
+
+.timer span {
+    font-size:12px;
+
+}
+
+.controls{
+    margin:40px 0 5px 0;
+}
+
+.controls i{
+    font-size:44px;
+    user-select: none;
+}
+
+
+
+.controls #prev {
+    font-size:40px;
+    margin-right: -13px;
+}
+
+.controls #next {
+    font-size:40px;
+    margin-left: -13px;
+}
+
+.controls #playbutton{
+    font-size:60px;
+}
+
+.controls #repeat-plist {
+    font-size:15px;
+}
+
+.controls #more-music {
+    font-size:15px;
+}
+
+.music-list {
+    position:absolute;
+    left:0;
+    bottom:-55%;
+    opacity:0;
+    pointer-events:none;
+    width:100%;
+    height:340px;
+    padding:15px 30px;;
+    border-radius:12px;
+    box-shadow: 0px -1px 11px rgba(0, 0, 0, 0.25);
+    background:#0a0a0bab;
+    backdrop-filter: blur(10px);
+    transition: all 0.14s ease-out;
+}
+
+/* USE THIS SHOW CLASS IN JS */
+
+.music-list.show{
+    bottom:0;
+    opacity:1;
+    pointer-events:auto;
+}
+
+.music-list .header .row {
+    display:flex;
+    align-items:center;
+    font-size:19px;
+}
+
+.header .row i{
+    cursor:default;
+}
+
+.header .row span{
+margin-left:5px;
+
+}
+
+.header #close {
+    font-size:22px;
+}
+
+.music-list ul {
+    margin: 10px 0;
+    max-height:260px;
+    overflow-y:auto;
+}
+
+.music-list ul::-webkit-scrollbar{
+    width:0px;
+}
+
+.music-list ul li {
+    cursor:pointer;
+    list-style:none;
+    padding-bottom:10px;
+    margin-bottom:5px;
+    border-bottom:1px solid #36343756;
+    
+}
+
+.music-list ul li:last-child{
+    border-bottom:0px;
+}
+
+.music-list ul li .row span {
+    font-size:17px;
+}
+
+ul li .row span p{
+    opacity:0.9;
+}
+
+ul li .audio-duration{
+    font-size:16px;
+}
+
+  ul li.playing{
+    pointer-events: none;
+    
+  }
